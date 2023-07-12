@@ -1,0 +1,20 @@
+import React, { useState } from 'react';
+
+const NumberForm = ({ addNumber }) => {
+  const [inputValue, setInputValue] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addNumber(inputValue);
+    setInputValue('');
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+      />
+      <button type="submit">Add Number</button>
+    </form>
